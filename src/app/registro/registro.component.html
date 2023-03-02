@@ -1,0 +1,75 @@
+
+&nbsp;&nbsp;<h1>Registro de Datos</h1><hr> 
+    
+<br>
+
+
+    <form (ngSubmit)="registrar()" autocomplete="off" [formGroup]="myForm" card>
+
+<!-- Nombre -->
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Nombre *</label>
+            <div class="col-sm-9">
+                <input type="text" 
+                    id="name"
+                    class="form-control"
+                    formControlName="nombre"
+                    placeholder="Nombre de la persona">
+                <span class="form-text text-danger"
+                        *ngIf="campoEsValido('nombre')">
+                    Este campo es obligatorio y sólo permite letras
+                </span>
+            </div>
+        </div>
+
+
+<!-- Apellido -->
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Apellido *</label>
+            <div class="col-sm-9">
+                <input type="text" 
+                    id="lastName"
+                    class="form-control"
+                    formControlName="apellido"
+                    placeholder="Apellido de la persona">
+                <span class="form-text text-danger"
+                        *ngIf="campoEsValido('apellido')">
+                    Este campo es obligatorio y sólo permite letras
+                    </span>
+            </div>
+        </div>
+
+<!-- Edad -->
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Edad *</label>
+            <div class="col-sm-9">
+                <input type="number"
+                    id="age"
+                    class="form-control"
+                    formControlName="edad"
+                    placeholder="Edad de la persona">
+                <span class="form-number text-danger"
+                        *ngIf="campoEsValido('edad')">
+                    La edad para registrarte es entre los 18 y los 65 años
+                </span>
+            </div>
+        </div>
+     
+        <hr>  
+ <!-- Botón -->           
+
+ <div class="row">
+    <div class="col-mt-10">
+        <button type="submit"
+                class="btn btn-primary float-end"
+                (click)="registrar()"
+                [disabled]="myForm.invalid">
+            Registrar
+        </button>
+    </div>
+</div>
+           
+      
+    </form>
+
+
